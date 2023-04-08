@@ -1,0 +1,18 @@
+import requests
+
+def ip_tracker(ip_address):
+    url = f"https://ipapi.co/{ip_address}/json/"
+    response = requests.get(url)
+    data = response.json()
+    print("IP Address: ", data['ip'])
+    print("Country: ", data['country_name'])
+    print("Region: ", data['region'])
+    print("City: ", data['city'])
+    print("Latitude: ", data['latitude'])
+    print("Longitude: ", data['longitude'])
+    print("Google Maps: ", f"https://www.google.com/maps/search/?api=1&query={data['latitude']},{data['longitude']}")
+
+print("IP TRACKER")
+ip_address = input("Enter an IP Address: ")
+ip_tracker(ip_address)
+    
